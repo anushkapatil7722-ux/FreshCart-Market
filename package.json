@@ -1,0 +1,23 @@
+{
+  "name": "freshcart-market",
+  "version": "1.0.0",
+  "description": "Vanilla HTML, CSS, and JS grocery store e-commerce website for FreshCart Market.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "grocery",
+    "e-commerce",
+    "vanilla-js",
+    "responsive",
+    "spa"
+  ],
+  "author": "FreshCart Market Team",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

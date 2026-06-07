@@ -1,0 +1,250 @@
+/* css-only.css - Pure CSS Interactive Logic & Styling for FreshCart Market */
+
+@import url('style.css');
+
+/* --- PURE CSS ROUTING SYSTEM --- */
+.route-input, .css-toggle, .filter-input, .step-input, .tab-input {
+  display: none !important; /* Hide all functional checkbox/radio inputs */
+}
+
+/* Hide all pages by default */
+.app-page-view {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Show only the active checked page */
+#route-home:checked ~ #view-home { display: block; }
+#route-shop:checked ~ #view-shop { display: block; }
+#route-checkout:checked ~ #view-checkout { display: block; }
+#route-profile:checked ~ #view-profile { display: block; }
+#route-admin:checked ~ #view-admin { display: block; }
+
+/* Active navigation label styling based on checked route */
+#route-home:checked ~ header label[for="route-home"],
+#route-shop:checked ~ header label[for="route-shop"] {
+  color: var(--primary-hover);
+  background-color: var(--primary-light);
+}
+
+#route-profile:checked ~ header label[for="route-profile"] {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+#route-admin:checked ~ header label[for="route-admin"] {
+  background-color: var(--primary-light);
+  color: var(--primary-hover);
+}
+
+/* --- MINI CART DRAWER CSS TOGGLE --- */
+.cart-drawer-overlay-label {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+  z-index: 1001;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#cart-drawer-toggle:checked ~ .cart-drawer-overlay-label {
+  display: block;
+  opacity: 1;
+}
+
+#cart-drawer-toggle:checked ~ .cart-drawer {
+  transform: translateX(0);
+}
+
+/* --- PRODUCT DETAIL MODAL pseudo-class :target --- */
+.modal-overlay:target {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-overlay:target .modal-content {
+  transform: scale(1);
+}
+
+/* --- PRODUCT CATALOG DYNAMIC FILTERING (PURE CSS) --- */
+
+/* Exclusive Category Filters */
+#filter-cat-produce:checked ~ .plp-container .product-card:not(.cat-produce) { display: none; }
+#filter-cat-bakery:checked ~ .plp-container .product-card:not(.cat-bakery) { display: none; }
+#filter-cat-dairy:checked ~ .plp-container .product-card:not(.cat-dairy) { display: none; }
+#filter-cat-meat:checked ~ .plp-container .product-card:not(.cat-meat) { display: none; }
+#filter-cat-pantry:checked ~ .plp-container .product-card:not(.cat-pantry) { display: none; }
+
+/* Cumulative Dietary Filters */
+#filter-diet-organic:checked ~ .plp-container .product-card:not(.diet-organic) { display: none; }
+#filter-diet-vegan:checked ~ .plp-container .product-card:not(.diet-vegan) { display: none; }
+#filter-diet-gf:checked ~ .plp-container .product-card:not(.diet-gf) { display: none; }
+
+/* Active Sidebar Filter Label Feedback */
+#filter-cat-produce:checked ~ .plp-container label[for="filter-cat-produce"],
+#filter-cat-bakery:checked ~ .plp-container label[for="filter-cat-bakery"],
+#filter-cat-dairy:checked ~ .plp-container label[for="filter-cat-dairy"],
+#filter-cat-meat:checked ~ .plp-container label[for="filter-cat-meat"],
+#filter-cat-pantry:checked ~ .plp-container label[for="filter-cat-pantry"],
+#filter-diet-organic:checked ~ .plp-container label[for="filter-diet-organic"],
+#filter-diet-vegan:checked ~ .plp-container label[for="filter-diet-vegan"],
+#filter-diet-gf:checked ~ .plp-container label[for="filter-diet-gf"] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+#filter-cat-produce:checked ~ .plp-container label[for="filter-cat-produce"] .dot,
+#filter-cat-bakery:checked ~ .plp-container label[for="filter-cat-bakery"] .dot,
+#filter-cat-dairy:checked ~ .plp-container label[for="filter-cat-dairy"] .dot,
+#filter-cat-meat:checked ~ .plp-container label[for="filter-cat-meat"] .dot,
+#filter-cat-pantry:checked ~ .plp-container label[for="filter-cat-pantry"] .dot,
+#filter-diet-organic:checked ~ .plp-container label[for="filter-diet-organic"] .dot,
+#filter-diet-vegan:checked ~ .plp-container label[for="filter-diet-vegan"] .dot,
+#filter-diet-gf:checked ~ .plp-container label[for="filter-diet-gf"] .dot {
+  display: block !important;
+}
+
+/* --- CHECKOUT 3-STEP FLOW (PURE CSS) --- */
+.checkout-panel {
+  display: none;
+}
+
+/* Show panels based on stepper radio toggles */
+#checkout-step-1:checked ~ .checkout-container .checkout-card #checkout-panel-1 { display: block; }
+#checkout-step-2:checked ~ .checkout-container .checkout-card #checkout-panel-2 { display: block; }
+#checkout-step-3:checked ~ .checkout-container .checkout-card #checkout-panel-3 { display: block; }
+
+/* Stepper state visual indicators */
+#checkout-step-1:checked ~ .checkout-container .checkout-card #step-ind-1 .step-num {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+#checkout-step-1:checked ~ .checkout-container .checkout-card #step-ind-1 .step-label {
+  color: var(--primary-dark);
+}
+
+#checkout-step-2:checked ~ .checkout-container .checkout-card #step-ind-1 .step-num,
+#checkout-step-3:checked ~ .checkout-container .checkout-card #step-ind-1 .step-num {
+  background-color: var(--primary-dark);
+  color: white;
+}
+
+#checkout-step-2:checked ~ .checkout-container .checkout-card #step-ind-2 .step-num {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+#checkout-step-2:checked ~ .checkout-container .checkout-card #step-ind-2 .step-label {
+  color: var(--primary-dark);
+}
+
+#checkout-step-3:checked ~ .checkout-container .checkout-card #step-ind-2 .step-num {
+  background-color: var(--primary-dark);
+  color: white;
+}
+
+#checkout-step-3:checked ~ .checkout-container .checkout-card #step-ind-3 .step-num {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+#checkout-step-3:checked ~ .checkout-container .checkout-card #step-ind-3 .step-label {
+  color: var(--primary-dark);
+}
+
+/* Scheduler Date selections */
+#sched-date-1:checked ~ .scheduler-dates label[for="sched-date-1"],
+#sched-date-2:checked ~ .scheduler-dates label[for="sched-date-2"],
+#sched-date-3:checked ~ .scheduler-dates label[for="sched-date-3"] {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Hide/show time slots based on selected day */
+.sched-slots-container {
+  display: none;
+}
+#sched-date-1:checked ~ #slots-day-1 { display: grid; }
+#sched-date-2:checked ~ #slots-day-2 { display: grid; }
+#sched-date-3:checked ~ #slots-day-3 { display: grid; }
+
+/* Active time slot selection */
+#slot-d1-h1:checked ~ label[for="slot-d1-h1"],
+#slot-d1-h2:checked ~ label[for="slot-d1-h2"],
+#slot-d1-h3:checked ~ label[for="slot-d1-h3"],
+#slot-d2-h1:checked ~ label[for="slot-d2-h1"],
+#slot-d2-h2:checked ~ label[for="slot-d2-h2"],
+#slot-d3-h1:checked ~ label[for="slot-d3-h1"] {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* Curbside pickup vs delivery toggling */
+#co-type-delivery:checked ~ .delivery-type-options label[for="co-type-delivery"],
+#co-type-pickup:checked ~ .delivery-type-options label[for="co-type-pickup"] {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+/* Secure payments toggling */
+#co-pay-card:checked ~ label[for="co-pay-card"],
+#co-pay-paypal:checked ~ label[for="co-pay-paypal"],
+#co-pay-apple:checked ~ label[for="co-pay-apple"] {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+#co-pay-card:checked ~ label[for="co-pay-card"] .pay-dot,
+#co-pay-paypal:checked ~ label[for="co-pay-paypal"] .pay-dot,
+#co-pay-apple:checked ~ label[for="co-pay-apple"] .pay-dot {
+  display: block !important;
+}
+
+#co-pay-card:checked ~ #css-card-fields {
+  display: block !important;
+}
+
+/* --- CUSTOMER PROFILE VIEWS (PURE CSS) --- */
+.profile-panel {
+  display: none;
+}
+#profile-tab-history:checked ~ .profile-container .profile-content-panel#panel-history { display: block; }
+#profile-tab-favorites:checked ~ .profile-container .profile-content-panel#panel-favorites { display: block; }
+#profile-tab-settings:checked ~ .profile-container .profile-content-panel#panel-settings { display: block; }
+
+/* Active profile tab label styling */
+#profile-tab-history:checked ~ .profile-container label[for="profile-tab-history"],
+#profile-tab-favorites:checked ~ .profile-container label[for="profile-tab-favorites"],
+#profile-tab-settings:checked ~ .profile-container label[for="profile-tab-settings"] {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* --- ADMIN VIEWS (PURE CSS) --- */
+.admin-sub-panel {
+  display: none;
+}
+#admin-tab-orders:checked ~ .admin-container #admin-panel-orders { display: block; }
+#admin-tab-products:checked ~ .admin-container #admin-panel-products { display: block; }
+
+#admin-tab-orders:checked ~ .admin-container label[for="admin-tab-orders"],
+#admin-tab-products:checked ~ .admin-container label[for="admin-tab-products"] {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* General Layout helpers for css-only */
+label.nav-btn, label.logo, label.category-card {
+  cursor: pointer;
+  display: inline-flex;
+}
+
+label.category-card img {
+  pointer-events: none;
+}

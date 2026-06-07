@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FreshCart Market - CSS-Only Mockup Store. Experience rich interactions using only HTML and CSS.">
+  <title>FreshCart Market | CSS-Only Interactive E-Commerce</title>
+  
+  <!-- Custom CSS Sheet -->
+  <link rel="stylesheet" href="css-only.css">
+</head>
+<body>
+
+  <!-- --- ROUTING INPUTS --- -->
+  <input type="radio" name="app-route" id="route-home" class="route-input" checked>
+  <input type="radio" name="app-route" id="route-shop" class="route-input">
+  <input type="radio" name="app-route" id="route-checkout" class="route-input">
+  <input type="radio" name="app-route" id="route-profile" class="route-input">
+  <input type="radio" name="app-route" id="route-admin" class="route-input">
+
+  <!-- --- CART DRAW CONTROLLER --- -->
+  <input type="checkbox" id="cart-drawer-toggle" class="css-toggle">
+
+  <!-- --- HEADER / NAVIGATION --- -->
+  <header>
+    <div class="container nav-container">
+      <!-- Logo Label (redirects to Home route) -->
+      <label for="route-home" class="logo" id="header-logo-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-leaf"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>FreshCart<span style="color: var(--secondary)">Market</span></span>
+      </label>
+
+      <!-- Mock Search Bar -->
+      <div class="search-wrapper">
+        <div class="search-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <input type="text" class="search-bar" placeholder="Search fresh vegetables, dairy, bread..." disabled>
+      </div>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <!-- Shop route label -->
+        <label for="route-shop" class="nav-btn" title="Shop All">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+        </label>
+        
+        <!-- Favorites route label -->
+        <label for="route-profile" class="nav-btn" title="Reorder List">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </label>
+
+        <!-- Cart drawer open label -->
+        <label for="cart-drawer-toggle" class="nav-btn" title="View Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge">3</span>
+        </label>
+
+        <!-- Profile trigger label -->
+        <label for="route-profile" class="profile-trigger">
+          <div class="avatar">C</div>
+          <span class="profile-name">Customer</span>
+        </label>
+
+        <!-- Admin trigger label -->
+        <label for="route-admin" class="nav-btn" title="Admin Portal" style="margin-left: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-orange)"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6Z"/><path d="M12 22V12"/></svg>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 1. HOMEPAGE VIEW                           -->
+  <!-- ========================================== -->
+  <main id="view-home" class="app-page-view">
+    <!-- Hero Banner -->
+    <section class="container">
+      <div class="hero-banner">
+        <img class="hero-img" src="assets/hero_banner.png" alt="Fresh Produce">
+        <div class="hero-content">
+          <span class="hero-tag">100% Organic & Local</span>
+          <h1>Freshness Delivered<br>Direct To Your Door</h1>
+          <p>Order fresh farm vegetables, bakery treats, premium meats, and dairy products. Selected with love, delivered with care.</p>
+          <label for="route-shop" class="hero-btn">
+            Shop Fresh Now
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="container categories-section">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="categories-grid">
+        <label for="route-shop" class="category-card">
+          <img src="assets/cat_produce.png" alt="Produce">
+          <div class="category-name">Fresh Produce</div>
+          <div class="category-count">5 items</div>
+        </label>
+        <label for="route-shop" class="category-card">
+          <img src="assets/cat_bakery.png" alt="Bakery">
+          <div class="category-name">Bakery & Bread</div>
+          <div class="category-count">3 items</div>
+        </label>
+        <label for="route-shop" class="category-card">
+          <img src="assets/cat_dairy.png" alt="Dairy">
+          <div class="category-name">Dairy & Eggs</div>
+          <div class="category-count">4 items</div>
+        </label>
+        <label for="route-shop" class="category-card">
+          <img src="assets/cat_meat.png" alt="Meat & Seafood">
+          <div class="category-name">Meat & Seafood</div>
+          <div class="category-count">3 items</div>
+        </label>
+      </div>
+    </section>
+
+    <!-- Weekly Deals -->
+    <section class="container products-section">
+      <h2 class="section-title">Weekly Deals</h2>
+      <div class="products-grid">
+        
+        <!-- Deal Item 1: Apples -->
+        <div class="product-card">
+          <div class="card-badges"><span class="badge-tag badge-deal">Weekly Deal</span></div>
+          <button class="fav-btn active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" style="color: var(--accent-red)"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+          <a class="product-img-wrapper" href="#pdp-apple">
+            <img class="product-img" src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80" alt="">
+          </a>
+          <div class="product-info">
+            <span class="product-category">produce</span>
+            <h3 class="product-name"><a href="#pdp-apple">Organic Honeycrisp Apples</a></h3>
+            <div class="product-rating">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span class="rating-value">4.8</span><span class="rating-count">(24)</span>
+            </div>
+            <div class="product-weight">approx 0.33 lb each</div>
+            <div class="product-footer">
+              <div class="product-price-box">
+                <span class="price-strike">$4.29</span>
+                <span class="price-current">$3.49</span>
+                <span class="price-unit">$3.49 / lb</span>
+              </div>
+              <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deal Item 2: Croissants -->
+        <div class="product-card">
+          <div class="card-badges"><span class="badge-tag badge-deal">Weekly Deal</span></div>
+          <button class="fav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+          <a class="product-img-wrapper" href="#pdp-croissant">
+            <img class="product-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80" alt="">
+          </a>
+          <div class="product-info">
+            <span class="product-category">bakery</span>
+            <h3 class="product-name"><a href="#pdp-croissant">All-Butter Croissants</a></h3>
+            <div class="product-rating">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span class="rating-value">4.7</span><span class="rating-count">(19)</span>
+            </div>
+            <div class="product-weight">approx 8 oz total</div>
+            <div class="product-footer">
+              <div class="product-price-box">
+                <span class="price-strike">$4.99</span>
+                <span class="price-current">$4.25</span>
+                <span class="price-unit">$4.25 / 4-pack</span>
+              </div>
+              <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 2. PRODUCT LISTING VIEW (PLP)              -->
+  <!-- ========================================== -->
+  <main id="view-shop" class="app-page-view">
+    
+    <!-- --- PLP FILTER INPUTS --- -->
+    <input type="checkbox" id="filter-cat-produce" class="filter-input">
+    <input type="checkbox" id="filter-cat-bakery" class="filter-input">
+    <input type="checkbox" id="filter-cat-dairy" class="filter-input">
+    <input type="checkbox" id="filter-cat-meat" class="filter-input">
+    <input type="checkbox" id="filter-cat-pantry" class="filter-input">
+    
+    <input type="checkbox" id="filter-diet-organic" class="filter-input">
+    <input type="checkbox" id="filter-diet-vegan" class="filter-input">
+    <input type="checkbox" id="filter-diet-gf" class="filter-input">
+
+    <div class="container plp-container">
+      <!-- Sidebar filters -->
+      <aside class="filters-sidebar">
+        <h3 style="font-weight: 800; font-size: 1.25rem; margin-bottom: 20px;">Filters</h3>
+        
+        <!-- Categories -->
+        <div class="filter-group">
+          <div class="filter-title">Category</div>
+          <label for="filter-cat-produce" class="filter-option">
+            <span style="border:1px solid #d1d5db; width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span class="dot" style="width:10px; height:10px; border-radius:2px; background:var(--primary); display:none;"></span></span>
+            Fresh Produce
+          </label>
+          <label for="filter-cat-bakery" class="filter-option">
+            <span style="border:1px solid #d1d5db; width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span class="dot" style="width:10px; height:10px; border-radius:2px; background:var(--primary); display:none;"></span></span>
+            Bakery & Bread
+          </label>
+          <label for="filter-cat-dairy" class="filter-option">
+            <span style="border:1px solid #d1d5db; width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span class="dot" style="width:10px; height:10px; border-radius:2px; background:var(--primary); display:none;"></span></span>
+            Dairy & Eggs
+          </label>
+          <label for="filter-cat-meat" class="filter-option">
+            <span style="border:1px solid #d1d5db; width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span class="dot" style="width:10px; height:10px; border-radius:2px; background:var(--primary); display:none;"></span></span>
+            Meat & Seafood
+          </label>
+        </div>
+
+        <!-- Dietary Preferences -->
+        <div class="filter-group">
+          <div class="filter-title">Dietary Preference</div>
+          <label for="filter-diet-organic" class="filter-option">
+            <span style="border:1px solid #d1d5db; width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span class="dot" style="width:10px; height:10px; border-radius:2px; background:var(--primary); display:none;"></span></span>
+            Organic
+          </label>
+          <label for="filter-diet-vegan" class="filter-option">
+            <span style="border:1px solid #d1d5db; width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span class="dot" style="width:10px; height:10px; border-radius:2px; background:var(--primary); display:none;"></span></span>
+            Vegan
+          </label>
+          <label for="filter-diet-gf" class="filter-option">
+            <span style="border:1px solid #d1d5db; width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span class="dot" style="width:10px; height:10px; border-radius:2px; background:var(--primary); display:none;"></span></span>
+            Gluten-Free
+          </label>
+        </div>
+
+        <!-- Clear Reset -->
+        <a href="#/shop" class="filter-btn-clear" style="display:block; text-align:center;">Reset Filters</a>
+      </aside>
+
+      <!-- Shop Main View -->
+      <main class="plp-content">
+        <div class="plp-toolbar">
+          <div class="plp-results-count">FreshCart Catalog Grid</div>
+          <div style="font-size:0.85rem; color:var(--text-muted)">Mockup Active Filters</div>
+        </div>
+
+        <!-- Grid of 6 items -->
+        <div class="products-grid">
+          
+          <!-- Card 1: Apple (produce, organic, vegan, gf) -->
+          <div class="product-card cat-produce diet-organic diet-vegan diet-gf">
+            <div class="card-badges"><span class="badge-tag badge-deal">Weekly Deal</span></div>
+            <button class="fav-btn active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" style="color: var(--accent-red)"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+            <a class="product-img-wrapper" href="#pdp-apple">
+              <img class="product-img" src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80" alt="">
+            </a>
+            <div class="product-info">
+              <span class="product-category">produce</span>
+              <h3 class="product-name"><a href="#pdp-apple">Organic Honeycrisp Apples</a></h3>
+              <div class="product-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="rating-value">4.8</span>
+              </div>
+              <div class="product-weight">approx 0.33 lb each</div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="price-current">$3.49</span>
+                  <span class="price-unit">$3.49 / lb</span>
+                </div>
+                <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Sourdough Bread (bakery, vegan) -->
+          <div class="product-card cat-bakery diet-vegan">
+            <button class="fav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+            <a class="product-img-wrapper" href="#pdp-sourdough">
+              <img class="product-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="">
+            </a>
+            <div class="product-info">
+              <span class="product-category">bakery</span>
+              <h3 class="product-name"><a href="#pdp-sourdough">Artisanal Sourdough Bread</a></h3>
+              <div class="product-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="rating-value">4.9</span>
+              </div>
+              <div class="product-weight">1.2 lbs (540g)</div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="price-current">$5.49</span>
+                  <span class="price-unit">$5.49 each</span>
+                </div>
+                <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Milk (dairy, organic, gf) -->
+          <div class="product-card cat-dairy diet-organic diet-gf">
+            <button class="fav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+            <a class="product-img-wrapper" href="#pdp-milk">
+              <img class="product-img" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80" alt="">
+            </a>
+            <div class="product-info">
+              <span class="product-category">dairy</span>
+              <h3 class="product-name"><a href="#pdp-milk">Organic Whole Milk</a></h3>
+              <div class="product-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="rating-value">4.8</span>
+              </div>
+              <div class="product-weight">64 fl oz (1.89L)</div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="price-current">$4.89</span>
+                  <span class="price-unit">$4.89 / half-gallon</span>
+                </div>
+                <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Salmon (meat/seafood, gf) -->
+          <div class="product-card cat-meat diet-gf">
+            <div class="card-badges"><span class="badge-tag badge-deal">Weekly Deal</span></div>
+            <button class="fav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+            <a class="product-img-wrapper" href="#pdp-salmon">
+              <img class="product-img" src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=400&q=80" alt="">
+            </a>
+            <div class="product-info">
+              <span class="product-category">meat</span>
+              <h3 class="product-name"><a href="#pdp-salmon">Fresh Atlantic Salmon Fillet</a></h3>
+              <div class="product-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="rating-value">4.9</span>
+              </div>
+              <div class="product-weight">approx 0.5 lb portion</div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="price-strike">$13.99</span>
+                  <span class="price-current">$11.99</span>
+                  <span class="price-unit">$11.99 / lb</span>
+                </div>
+                <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Bananas (produce, organic, vegan, gf) -->
+          <div class="product-card cat-produce diet-organic diet-vegan diet-gf">
+            <button class="fav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+            <a class="product-img-wrapper" href="#pdp-banana">
+              <img class="product-img" src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=400&q=80" alt="">
+            </a>
+            <div class="product-info">
+              <span class="product-category">produce</span>
+              <h3 class="product-name"><a href="#pdp-banana">Organic Bananas</a></h3>
+              <div class="product-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="rating-value">4.9</span>
+              </div>
+              <div class="product-weight">approx 5-6 bananas per bunch</div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="price-current">$1.89</span>
+                  <span class="price-unit">$1.89 / bunch</span>
+                </div>
+                <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Cheese (dairy, gf) -->
+          <div class="product-card cat-dairy diet-gf">
+            <button class="fav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+            <a class="product-img-wrapper" href="#pdp-cheese">
+              <img class="product-img" src="https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=400&q=80" alt="">
+            </a>
+            <div class="product-info">
+              <span class="product-category">dairy</span>
+              <h3 class="product-name"><a href="#pdp-cheese">Sharp Cheddar Cheese Block</a></h3>
+              <div class="product-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span class="rating-value">4.6</span>
+              </div>
+              <div class="product-weight">8 oz (226g)</div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="price-current">$3.99</span>
+                  <span class="price-unit">$3.99 / 8oz</span>
+                </div>
+                <label for="cart-drawer-toggle" class="add-cart-btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 3. CHECKOUT WIZARD VIEW                    -->
+  <!-- ========================================== -->
+  <main id="view-checkout" class="app-page-view">
+    
+    <!-- --- CHECKOUT STEP CONTROLLERS --- -->
+    <input type="radio" name="checkout-step" id="checkout-step-1" class="step-input" checked>
+    <input type="radio" name="checkout-step" id="checkout-step-2" class="step-input">
+    <input type="radio" name="checkout-step" id="checkout-step-3" class="step-input">
+
+    <div class="container checkout-container">
+      <div class="checkout-card">
+        <!-- Stepper -->
+        <div class="stepper">
+          <div class="step" id="step-ind-1">
+            <div class="step-num">1</div>
+            <div class="step-label">Delivery Options</div>
+          </div>
+          <div class="step" id="step-ind-2">
+            <div class="step-num">2</div>
+            <div class="step-label">Information & Pay</div>
+          </div>
+          <div class="step" id="step-ind-3">
+            <div class="step-num">3</div>
+            <div class="step-label">Confirmation</div>
+          </div>
+        </div>
+
+        <!-- Step 1 Panel: Scheduler -->
+        <div class="checkout-panel" id="checkout-panel-1">
+          <div class="checkout-step-title">Select Delivery or Curbside Pickup</div>
+          
+          <input type="radio" name="co-type" id="co-type-delivery" class="tab-input" checked>
+          <input type="radio" name="co-type" id="co-type-pickup" class="tab-input">
+          
+          <div class="delivery-type-options">
+            <label for="co-type-delivery" class="type-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary)"><path d="M14 18H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11v11"/><path d="M19 18h2a1 1 0 0 0 1-1v-4l-3-4h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+              <div class="type-title">Home Delivery</div>
+              <div class="type-desc">Contactless delivery to your address.</div>
+            </label>
+            <label for="co-type-pickup" class="type-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary)"><path d="m2 9 3-5h14l3 5v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/><path d="M2 9h20"/></svg>
+              <div class="type-title">Curbside Pickup</div>
+              <div class="type-desc">Pick up at FreshCart Market slots.</div>
+            </label>
+          </div>
+
+          <!-- Pure CSS Slots Scheduler -->
+          <div class="scheduler-section">
+            <div class="filter-title">Choose Date & Time Slot</div>
+            
+            <input type="radio" name="sched-day" id="sched-date-1" class="tab-input" checked>
+            <input type="radio" name="sched-day" id="sched-date-2" class="tab-input">
+            <input type="radio" name="sched-day" id="sched-date-3" class="tab-input">
+
+            <div class="scheduler-dates">
+              <label for="sched-date-1" class="scheduler-date-card">Today (Jun 7)</label>
+              <label for="sched-date-2" class="scheduler-date-card">Tomorrow (Jun 8)</label>
+              <label for="sched-date-3" class="scheduler-date-card">Day After (Jun 9)</label>
+            </div>
+
+            <!-- Day 1 slots -->
+            <div class="sched-slots-container" id="slots-day-1">
+              <input type="radio" name="sched-slot" id="slot-d1-h1" class="tab-input" checked>
+              <input type="radio" name="sched-slot" id="slot-d1-h2" class="tab-input">
+              <input type="radio" name="sched-slot" id="slot-d1-h3" class="tab-input">
+              
+              <label for="slot-d1-h1" class="scheduler-slot-card">12:00 PM - 02:00 PM</label>
+              <label for="slot-d1-h2" class="scheduler-slot-card">02:00 PM - 04:00 PM</label>
+              <label for="slot-d1-h3" class="scheduler-slot-card">04:00 PM - 06:00 PM</label>
+            </div>
+
+            <!-- Day 2 slots -->
+            <div class="sched-slots-container" id="slots-day-2">
+              <input type="radio" name="sched-slot" id="slot-d2-h1" class="tab-input">
+              <input type="radio" name="sched-slot" id="slot-d2-h2" class="tab-input">
+              
+              <label for="slot-d2-h1" class="scheduler-slot-card">08:00 AM - 10:00 AM</label>
+              <label for="slot-d2-h2" class="scheduler-slot-card">10:00 AM - 12:00 PM</label>
+            </div>
+
+            <!-- Day 3 slots -->
+            <div class="sched-slots-container" id="slots-day-3">
+              <input type="radio" name="sched-slot" id="slot-d3-h1" class="tab-input">
+              
+              <label for="slot-d3-h1" class="scheduler-slot-card">06:00 PM - 08:00 PM</label>
+            </div>
+          </div>
+
+          <div style="margin-top: 32px; display:flex; justify-content:flex-end;">
+            <label for="checkout-step-2" class="checkout-btn" style="width:auto; margin:0; padding:12px 36px; cursor:pointer;">
+              Continue to Payment
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2 Panel: Info & Pay -->
+        <div class="checkout-panel" id="checkout-panel-2">
+          <div class="checkout-step-title">Personal & Payment Details</div>
+          
+          <div class="form-grid" style="margin-bottom:32px;">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" class="form-control" value="Alex Johnson" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" class="form-control" value="(555) 234-5678" required>
+            </div>
+            <div class="form-group span-2">
+              <label>Delivery Address *</label>
+              <input type="text" class="form-control" value="742 Evergreen Terrace, Springfield" required>
+            </div>
+          </div>
+
+          <div class="filter-title">Secure Payment Method</div>
+          <div class="payment-methods">
+            <input type="radio" name="pay-opt" id="co-pay-card" class="tab-input" checked>
+            <input type="radio" name="pay-opt" id="co-pay-paypal" class="tab-input">
+            <input type="radio" name="pay-opt" id="co-pay-apple" class="tab-input">
+
+            <label for="co-pay-card" class="payment-method-row">
+              <span style="width:18px; height:18px; border-radius:50%; border:1px solid #d1d5db; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span style="width:10px; height:10px; border-radius:50%; background:var(--primary); display:none;" class="pay-dot"></span></span>
+              <span style="flex:1; font-weight:600;">Credit Card</span>
+            </label>
+
+            <div class="payment-details-form" id="css-card-fields" style="display:none; margin-top:16px;">
+              <div class="form-grid">
+                <div class="form-group span-2">
+                  <label>Card Number</label>
+                  <input type="text" class="form-control" value="4111 2222 3333 4321">
+                </div>
+                <div class="form-group">
+                  <label>Expiry Date</label>
+                  <input type="text" class="form-control" value="12/28">
+                </div>
+                <div class="form-group">
+                  <label>CVV</label>
+                  <input type="password" class="form-control" value="123">
+                </div>
+              </div>
+            </div>
+
+            <label for="co-pay-paypal" class="payment-method-row">
+              <span style="width:18px; height:18px; border-radius:50%; border:1px solid #d1d5db; display:inline-flex; align-items:center; justify-content:center; margin-right:8px;"><span style="width:10px; height:10px; border-radius:50%; background:var(--primary); display:none;" class="pay-dot"></span></span>
+              <span style="font-weight:800; color:#003087; font-style:italic;">PayPal</span>
+            </label>
+          </div>
+
+          <div style="margin-top:32px; display:flex; justify-content:space-between;">
+            <label for="checkout-step-1" class="filter-btn-clear" style="width:auto; margin:0; cursor:pointer;">Back</label>
+            <label for="checkout-step-3" class="checkout-btn" style="width:auto; margin:0; padding:12px 36px; cursor:pointer;">Place Order ($26.35)</label>
+          </div>
+        </div>
+
+        <!-- Step 3 Panel: Success & tracker mockup -->
+        <div class="checkout-panel" id="checkout-panel-3">
+          <div class="confirmation-panel">
+            <div class="success-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:8px;">Order Placed!</h2>
+            <p style="color:var(--text-muted); margin-bottom:24px;">Thank you for shopping at FreshCart Market. Your order is registered.</p>
+            
+            <div class="conf-order-details">
+              <div class="conf-row">
+                <span class="conf-label">Order Number</span>
+                <span class="conf-val">ord-98273</span>
+              </div>
+              <div class="conf-row">
+                <span class="conf-label">Delivery Date</span>
+                <span class="conf-val">Today (Jun 7) - 12:00 PM</span>
+              </div>
+              <div class="conf-row">
+                <span class="conf-label">Paid Total</span>
+                <span class="conf-val">$26.35</span>
+              </div>
+            </div>
+
+            <!-- Live tracker -->
+            <div class="delivery-tracker">
+              <div class="tracker-title">Order Tracker Status</div>
+              <div class="tracker-timeline">
+                <div class="tracker-step completed">
+                  <div class="tracker-dot"></div>
+                  <div class="tracker-label">Placed</div>
+                </div>
+                <div class="tracker-step active">
+                  <div class="tracker-dot"></div>
+                  <div class="tracker-label">Preparing</div>
+                </div>
+                <div class="tracker-step">
+                  <div class="tracker-dot"></div>
+                  <div class="tracker-label">On Way</div>
+                </div>
+                <div class="tracker-step">
+                  <div class="tracker-dot"></div>
+                  <div class="tracker-label">Delivered</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:40px;">
+              <label for="route-shop" class="hero-btn" style="cursor:pointer;">Continue Shopping</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Checkout static summary -->
+      <aside class="checkout-summary-card">
+        <h3 style="font-weight:800; font-size:1.2rem; margin-bottom:20px;">Order Summary</h3>
+        <div class="summary-items-list">
+          <div class="summary-item-row">
+            <span class="summary-item-name">Organic Apples</span>
+            <span class="summary-item-qty">x2</span>
+            <span style="font-weight:600;">$6.98</span>
+          </div>
+          <div class="summary-item-row">
+            <span class="summary-item-name">Organic Whole Milk</span>
+            <span class="summary-item-qty">x1</span>
+            <span style="font-weight:600;">$4.89</span>
+          </div>
+          <div class="summary-item-row">
+            <span class="summary-item-name">Atlantic Salmon portion</span>
+            <span class="summary-item-qty">x1</span>
+            <span style="font-weight:600;">$11.99</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div class="cart-summary-row">
+            <span>Subtotal</span>
+            <span>$23.86</span>
+          </div>
+          <div class="cart-summary-row">
+            <span>Delivery</span>
+            <span>$2.49</span>
+          </div>
+          <div class="cart-summary-row total">
+            <span>Total</span>
+            <span>$26.35</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 4. CUSTOMER PROFILE VIEW                   -->
+  <!-- ========================================== -->
+  <main id="view-profile" class="app-page-view">
+    
+    <!-- --- PROFILE TAB INPUTS --- -->
+    <input type="radio" name="profile-tab" id="profile-tab-history" class="tab-input" checked>
+    <input type="radio" name="profile-tab" id="profile-tab-favorites" class="tab-input">
+    <input type="radio" name="profile-tab" id="profile-tab-settings" class="tab-input">
+
+    <div class="container profile-container">
+      <aside class="profile-sidebar">
+        <div style="text-align:center; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--neutral-border);">
+          <div class="avatar" style="width:60px; height:60px; margin:0 auto 12px; font-size:1.5rem;">A</div>
+          <h4 style="font-weight:700;">Alex Johnson</h4>
+          <span style="font-size:0.8rem; color:var(--text-muted)">customer@freshcart.com</span>
+        </div>
+        <nav>
+          <label for="profile-tab-history" class="profile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+            Order History
+          </label>
+          <label for="profile-tab-favorites" class="profile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            Reorder List / Favs
+          </label>
+          <label for="profile-tab-settings" class="profile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            Account Details
+          </label>
+        </nav>
+      </aside>
+
+      <main style="flex:1;">
+        <!-- Order History -->
+        <div class="profile-content-panel" id="panel-history">
+          <div class="checkout-step-title">Your Order History</div>
+          <div class="orders-list">
+            <div class="order-history-card">
+              <div class="order-history-header">
+                <div>
+                  <span class="order-history-id">ord-88392</span>
+                  <span style="color:var(--text-light); margin:0 8px;">|</span>
+                  <span>2026-05-15</span>
+                </div>
+                <span class="order-history-status status-delivered">Delivered</span>
+              </div>
+              <div class="order-history-body">
+                <div class="order-history-items">
+                  Organic Honeycrisp Apples (x2), Organic Whole Milk (x1), Pasture-Raised Eggs (x2)
+                  <div style="font-size:0.8rem; margin-top:8px; font-weight:600;">Curbside Pickup</div>
+                </div>
+                <div style="font-weight:700; font-size:1.1rem;">$24.37</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Favorites -->
+        <div class="profile-content-panel" id="panel-favorites">
+          <div class="checkout-step-title">Reorder List</div>
+          <div class="products-grid">
+            
+            <div class="product-card cat-produce">
+              <button class="fav-btn active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" style="color: var(--accent-red)"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2a5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+              <div class="product-img-wrapper">
+                <img class="product-img" src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80" alt="">
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">Organic Honeycrisp Apples</h3>
+                <div class="product-price-box"><span class="price-current">$3.49</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="profile-content-panel" id="panel-settings">
+          <div class="checkout-step-title">Account Details</div>
+          <form onsubmit="return false;">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" value="Alex Johnson">
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" value="customer@freshcart.com" disabled>
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" class="form-control" value="(555) 234-5678">
+              </div>
+              <div class="form-group">
+                <label>Delivery Address</label>
+                <input type="text" class="form-control" value="742 Evergreen Terrace, Springfield">
+              </div>
+            </div>
+            <button type="button" class="checkout-btn" style="width:auto; padding:12px 36px; margin:0;">Save Changes</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 5. ADMIN DASHBOARD VIEW                    -->
+  <!-- ========================================== -->
+  <main id="view-admin" class="app-page-view">
+    
+    <!-- --- ADMIN TAB INPUTS --- -->
+    <input type="radio" name="admin-tab" id="admin-tab-orders" class="tab-input" checked>
+    <input type="radio" name="admin-tab" id="admin-tab-products" class="tab-input">
+
+    <div class="container admin-container">
+      <div>
+        <h2 style="font-weight:800; font-size:2rem;">Store Manager Portal</h2>
+        <p style="color:var(--text-muted)">Manage products, catalog, and status updates (CSS Mockup)</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <section class="admin-stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-sales"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="stat-info"><span class="stat-val">$245.92</span><span class="stat-lbl">Daily Sales</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-orders"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div>
+          <div class="stat-info"><span class="stat-val">12</span><span class="stat-lbl">Total Orders</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-stock"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg></div>
+          <div class="stat-info"><span class="stat-val">1</span><span class="stat-lbl">Out of Stock</span></div>
+        </div>
+      </section>
+
+      <!-- Analytics chart -->
+      <section class="admin-panel-card">
+        <div class="panel-header">Sales Distribution by Category</div>
+        <div class="analytics-chart">
+          <div class="chart-bar-col">
+            <div class="chart-bar highlight" style="height:80%;" data-val="$120"></div>
+            <span class="chart-label">Produce</span>
+          </div>
+          <div class="chart-bar-col">
+            <div class="chart-bar" style="height:30%;" data-val="$45"></div>
+            <span class="chart-label">Bakery</span>
+          </div>
+          <div class="chart-bar-col">
+            <div class="chart-bar highlight" style="height:65%;" data-val="$90"></div>
+            <span class="chart-label">Dairy</span>
+          </div>
+          <div class="chart-bar-col">
+            <div class="chart-bar" style="height:45%;" data-val="$60"></div>
+            <span class="chart-label">Meat</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel Tabs -->
+      <section class="admin-panel-card" style="margin-bottom:80px;">
+        <div class="auth-tabs" style="margin-bottom:24px;">
+          <label for="admin-tab-orders" class="auth-tab">Order Manager</label>
+          <label for="admin-tab-products" class="auth-tab">Inventory list</label>
+        </div>
+
+        <!-- Orders list -->
+        <div class="admin-sub-panel" id="admin-panel-orders">
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer Name</th>
+                  <th>Total Price</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:700;">ord-98273</td>
+                  <td>Alex Johnson</td>
+                  <td>$26.35</td>
+                  <td>Delivery</td>
+                  <td><span class="order-history-status status-processing" style="padding:4px 12px; border-radius:12px;">Processing</span></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">ord-88392</td>
+                  <td>Alex Johnson</td>
+                  <td>$24.37</td>
+                  <td>Pickup</td>
+                  <td><span class="order-history-status status-delivered" style="padding:4px 12px; border-radius:12px;">Delivered</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Inventory List -->
+        <div class="admin-sub-panel" id="admin-panel-products">
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price ($)</th>
+                  <th>Stock Quantity</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Honeycrisp Apples</td>
+                  <td><input type="text" class="form-control" style="width:70px; padding:4px 8px;" value="3.49"></td>
+                  <td><input type="text" class="form-control" style="width:70px; padding:4px 8px;" value="45"></td>
+                  <td>Produce</td>
+                </tr>
+                <tr>
+                  <td>Artisanal Sourdough</td>
+                  <td><input type="text" class="form-control" style="width:70px; padding:4px 8px;" value="5.49"></td>
+                  <td><input type="text" class="form-control" style="width:70px; padding:4px 8px;" value="12"></td>
+                  <td>Bakery</td>
+                </tr>
+                <tr>
+                  <td>Greek Yogurt</td>
+                  <td><input type="text" class="form-control" style="width:70px; padding:4px 8px;" value="1.49"></td>
+                  <td><input type="text" class="form-control" style="width:70px; padding:4px 8px;" value="0" style="color:var(--accent-red)"></td>
+                  <td>Dairy</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 6. DYNAMIC OVERLAY DRAWERS & MODALS        -->
+  <!-- ========================================== -->
+
+  <!-- Mini-Cart Slideout Drawer overlay label -->
+  <label for="cart-drawer-toggle" class="cart-drawer-overlay-label" id="cart-drawer-overlay"></label>
+  
+  <div class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="logo-leaf" style="color:var(--primary)"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>My Shopping Cart</span>
+      </div>
+      <label for="cart-drawer-toggle" class="cart-close" style="cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></label>
+    </div>
+
+    <!-- Items list -->
+    <div class="cart-items-container">
+      
+      <div class="cart-item">
+        <img class="cart-item-img" src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="cart-item-details">
+          <div class="cart-item-name">Organic Honeycrisp Apples</div>
+          <div class="cart-item-price">$3.49 <span style="font-size:0.75rem; color:var(--text-muted);">/ lb</span></div>
+          <div class="cart-item-controls">
+            <div class="cart-qty"><span style="padding:2px 12px; font-weight:700;">x2</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img class="cart-item-img" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="cart-item-details">
+          <div class="cart-item-name">Organic Whole Milk</div>
+          <div class="cart-item-price">$4.89 <span style="font-size:0.75rem; color:var(--text-muted);">/ carton</span></div>
+          <div class="cart-item-controls">
+            <div class="cart-qty"><span style="padding:2px 12px; font-weight:700;">x1</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row"><span>Subtotal</span><span>$11.87</span></div>
+      <div class="cart-summary-row total"><span>Estimated Total</span><span>$11.87</span></div>
+      <label for="route-checkout" onclick="document.getElementById('cart-drawer-toggle').checked=false;" class="checkout-btn" style="cursor:pointer; display:flex;">
+        Proceed to Checkout
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </label>
+    </div>
+  </div>
+
+  <!-- --- TARGET POPUP DETAILED MODALS --- -->
+
+  <!-- Modal: Apple -->
+  <div class="modal-overlay" id="pdp-apple">
+    <div class="modal-content">
+      <a href="#view-shop" class="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+      <div class="pdp-grid">
+        <div class="pdp-gallery">
+          <img class="pdp-main-img" src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80" alt="">
+        </div>
+        <div class="pdp-info">
+          <div class="pdp-dietary-badges">
+            <span class="pdp-diet-badge">organic</span>
+            <span class="pdp-diet-badge">vegan</span>
+            <span class="pdp-diet-badge">gluten-free</span>
+          </div>
+          <h1 class="pdp-title">Organic Honeycrisp Apples</h1>
+          <div class="product-rating" style="margin-bottom:20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="rating-value">4.8</span>
+          </div>
+          <div class="pdp-pricing-box"><span class="pdp-price">$3.49</span><span class="pdp-price-unit">/ lb</span></div>
+          <p class="pdp-description">Crisp, sweet, and exceptionally juicy Honeycrisp apples. Great for healthy snacking, baking pies, or sliced into salads.</p>
+          <div class="pdp-actions-row">
+            <label for="cart-drawer-toggle" class="pdp-add-btn">Add to Cart</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Sourdough -->
+  <div class="modal-overlay" id="pdp-sourdough">
+    <div class="modal-content">
+      <a href="#view-shop" class="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+      <div class="pdp-grid">
+        <div class="pdp-gallery">
+          <img class="pdp-main-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="">
+        </div>
+        <div class="pdp-info">
+          <div class="pdp-dietary-badges"><span class="pdp-diet-badge">vegan</span></div>
+          <h1 class="pdp-title">Artisanal Sourdough Bread</h1>
+          <div class="product-rating" style="margin-bottom:20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="rating-value">4.9</span>
+          </div>
+          <div class="pdp-pricing-box"><span class="pdp-price">$5.49</span><span class="pdp-price-unit">/ loaf</span></div>
+          <p class="pdp-description">Baked fresh daily with organic stoneground flours. Crispy blistered crust with a soft tangy crumb structure.</p>
+          <div class="pdp-actions-row">
+            <label for="cart-drawer-toggle" class="pdp-add-btn">Add to Cart</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Milk -->
+  <div class="modal-overlay" id="pdp-milk">
+    <div class="modal-content">
+      <a href="#view-shop" class="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+      <div class="pdp-grid">
+        <div class="pdp-gallery">
+          <img class="pdp-main-img" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80" alt="">
+        </div>
+        <div class="pdp-info">
+          <div class="pdp-dietary-badges">
+            <span class="pdp-diet-badge">organic</span>
+            <span class="pdp-diet-badge">gluten-free</span>
+          </div>
+          <h1 class="pdp-title">Organic Whole Milk</h1>
+          <div class="product-rating" style="margin-bottom:20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="rating-value">4.8</span>
+          </div>
+          <div class="pdp-pricing-box"><span class="pdp-price">$4.89</span><span class="pdp-price-unit">/ carton</span></div>
+          <p class="pdp-description">Rich whole milk from pasture-raised organic cows. Loaded with calcium and vitamin D.</p>
+          <div class="pdp-actions-row">
+            <label for="cart-drawer-toggle" class="pdp-add-btn">Add to Cart</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Salmon -->
+  <div class="modal-overlay" id="pdp-salmon">
+    <div class="modal-content">
+      <a href="#view-shop" class="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+      <div class="pdp-grid">
+        <div class="pdp-gallery">
+          <img class="pdp-main-img" src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=400&q=80" alt="">
+        </div>
+        <div class="pdp-info">
+          <div class="pdp-dietary-badges"><span class="pdp-diet-badge">gluten-free</span></div>
+          <h1 class="pdp-title">Fresh Atlantic Salmon Fillet</h1>
+          <div class="product-rating" style="margin-bottom:20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="rating-value">4.9</span>
+          </div>
+          <div class="pdp-pricing-box"><span class="pdp-price">$11.99</span><span class="pdp-price-unit">/ lb</span></div>
+          <p class="pdp-description">Responsibly ocean-farmed skin-on Atlantic salmon. High in healthy omega-3 fatty acids.</p>
+          <div class="pdp-actions-row">
+            <label for="cart-drawer-toggle" class="pdp-add-btn">Add to Cart</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Banana -->
+  <div class="modal-overlay" id="pdp-banana">
+    <div class="modal-content">
+      <a href="#view-shop" class="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+      <div class="pdp-grid">
+        <div class="pdp-gallery">
+          <img class="pdp-main-img" src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=400&q=80" alt="">
+        </div>
+        <div class="pdp-info">
+          <div class="pdp-dietary-badges">
+            <span class="pdp-diet-badge">organic</span>
+            <span class="pdp-diet-badge">vegan</span>
+            <span class="pdp-diet-badge">gluten-free</span>
+          </div>
+          <h1 class="pdp-title">Organic Bananas</h1>
+          <div class="product-rating" style="margin-bottom:20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="rating-value">4.9</span>
+          </div>
+          <div class="pdp-pricing-box"><span class="pdp-price">$1.89</span><span class="pdp-price-unit">/ bunch</span></div>
+          <p class="pdp-description">Sweet and potassium-rich organic bananas, harvested ethically. Delivered slightly green for natural counter ripening.</p>
+          <div class="pdp-actions-row">
+            <label for="cart-drawer-toggle" class="pdp-add-btn">Add to Cart</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Cheese -->
+  <div class="modal-overlay" id="pdp-cheese">
+    <div class="modal-content">
+      <a href="#view-shop" class="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></a>
+      <div class="pdp-grid">
+        <div class="pdp-gallery">
+          <img class="pdp-main-img" src="https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=400&q=80" alt="">
+        </div>
+        <div class="pdp-info">
+          <div class="pdp-dietary-badges"><span class="pdp-diet-badge">gluten-free</span></div>
+          <h1 class="pdp-title">Sharp Cheddar Cheese Block</h1>
+          <div class="product-rating" style="margin-bottom:20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="star-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="rating-value">4.6</span>
+          </div>
+          <div class="pdp-pricing-box"><span class="pdp-price">$3.99</span><span class="pdp-price-unit">/ block</span></div>
+          <p class="pdp-description">Aged cheddar with a classic sharp bite, perfect for grating, slicing, or serving on grazing boards.</p>
+          <div class="pdp-actions-row">
+            <label for="cart-drawer-toggle" class="pdp-add-btn">Add to Cart</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- --- SEMANTIC FOOTER --- -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 FreshCart Market. CSS-Only Mockup Mode. All animations and page flows are built with pure HTML/CSS.</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FreshCart Market - Order fresh organic produce, bakery goods, meats, and dairy for curbside pickup or contactless home delivery. Freshness you can taste!">
+  <title>FreshCart Market | Fresh Groceries Delivered</title>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="#/" class="logo" id="header-logo-link">
+        <i data-lucide="shopping-cart" class="logo-leaf"></i>
+        <span>FreshCart<span style="color: var(--secondary)">Market</span></span>
+      </a>
+
+      <!-- Smart Search Bar (Desktop) -->
+      <div class="search-wrapper">
+        <form onsubmit="handleSearchSubmit(event)" id="desktop-search-form">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" class="search-bar" id="search-input" placeholder="Search fresh vegetables, dairy, bread..." autocomplete="off">
+        </form>
+        <!-- Suggestions dropdown -->
+        <div class="search-suggestions" id="search-suggestions"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Shop Page shortcut -->
+        <a href="#/shop" class="nav-btn" id="nav-btn-shop" title="Shop All">
+          <i data-lucide="layout-grid"></i>
+        </a>
+        
+        <!-- Favorites List shortcut -->
+        <a href="#/profile" class="nav-btn" id="nav-btn-favorites" title="Reorder List" onclick="state.profileActiveTab='favorites'">
+          <i data-lucide="heart"></i>
+        </a>
+
+        <!-- Mini-Cart Drawer trigger -->
+        <button class="nav-btn" id="nav-btn-cart" onclick="openCartDrawer()" title="View Cart">
+          <i data-lucide="shopping-bag"></i>
+          <span class="badge" id="cart-badge-count" style="display: none;">0</span>
+        </button>
+
+        <!-- Auth Account / Profile Profile triggers -->
+        <div id="header-auth-trigger">
+          <!-- Populated by JS auth checks -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Search Bar (Only visible on small devices) -->
+    <div class="mobile-search-bar">
+      <form onsubmit="handleSearchSubmit(event)" id="mobile-search-form">
+        <i data-lucide="search" class="search-icon" style="left: 36px;"></i>
+        <input type="text" class="search-bar" id="mob-search-input" placeholder="Search grocery items..." autocomplete="off">
+      </form>
+      <div class="search-suggestions" id="mob-search-suggestions" style="left: 24px; right: 24px;"></div>
+    </div>
+  </header>
+
+  <!-- MAIN DYNAMIC CONTENT INTERFACE -->
+  <main id="app-view">
+    <!-- Pages rendered dynamically by router in app.js -->
+  </main>
+
+  <!-- SEMANTIC FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Store summary -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <i data-lucide="shopping-cart" class="footer-logo-leaf"></i>
+            <span>FreshCart<span style="color: var(--secondary)">Market</span></span>
+          </div>
+          <p style="margin-bottom: 20px;">Your neighborhood market, bringing organic produce and fresh local groceries straight to your home. We specialize in contactless deliveries and fast curbside pickup.</p>
+          <div style="display: flex; gap: 16px;">
+            <a href="#" class="nav-btn" style="background: #292524; color: white;" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" class="nav-btn" style="background: #292524; color: white;" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" class="nav-btn" style="background: #292524; color: white;" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Links column 1 -->
+        <div class="footer-col">
+          <h3>Shop Catalog</h3>
+          <ul class="footer-links">
+            <li><a href="#/shop?category=produce">Fresh Vegetables & Fruit</a></li>
+            <li><a href="#/shop?category=bakery">Bakery & Pastries</a></li>
+            <li><a href="#/shop?category=dairy">Dairy products & Eggs</a></li>
+            <li><a href="#/shop?category=meat">Fresh Meats & Seafood</a></li>
+            <li><a href="#/shop?category=pantry">Pantry Staples</a></li>
+          </ul>
+        </div>
+
+        <!-- Links column 2 -->
+        <div class="footer-col">
+          <h3>Customer Support</h3>
+          <ul class="footer-links">
+            <li><a href="#/">Contact Store</a></li>
+            <li><a href="#/">Delivery Information</a></li>
+            <li><a href="#/">Refund Policy</a></li>
+            <li><a href="#/">Frequently Asked Questions</a></li>
+            <li><a href="#/profile">My Account Settings</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact details -->
+        <div class="footer-col">
+          <h3>FreshCart Store</h3>
+          <p style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="map-pin" style="color: var(--primary); width: 18px; height: 18px;"></i>
+            742 Market Avenue, Green Town
+          </p>
+          <p style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="phone" style="color: var(--primary); width: 18px; height: 18px;"></i>
+            (555) 789-9900
+          </p>
+          <p style="display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="mail" style="color: var(--primary); width: 18px; height: 18px;"></i>
+            support@freshcartmarket.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 FreshCart Market. All Rights Reserved. Designed for visual excellence.</div>
+        <div style="display: flex; gap: 24px; font-weight: 500;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC MINI-CART SLIDE-OUT PANEL -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="closeCartDrawer()">
+    <div class="cart-drawer" id="cart-drawer" onclick="event.stopPropagation()">
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <i data-lucide="shopping-bag" style="color: var(--primary)"></i>
+          <span>My Shopping Cart</span>
+        </div>
+        <button class="cart-close" id="cart-close-btn" onclick="closeCartDrawer()" aria-label="Close Cart">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <!-- Items Grid -->
+      <div class="cart-items-container" id="cart-items-list">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Drawer Footer Summary -->
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-row" style="font-size: 0.85rem; color: var(--text-muted)">
+          <span>Shipping & Taxes</span>
+          <span>Calculated at checkout</span>
+        </div>
+        <div class="cart-summary-row total">
+          <span>Estimated Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        
+        <a href="#/checkout" class="checkout-btn" id="drawer-checkout-btn">
+          Proceed to Checkout
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN DIALOG / POPUP LAYER (For PDP Modal & Sign In) -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal-content" id="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" id="modal-close-btn" onclick="closeModal()" aria-label="Close modal">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+      <div id="modal-inner-content">
+        <!-- Populated dynamically (Product details or Authentication screens) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION STACK -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- DEPENDENCIES -->
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Load Database Data -->
+  <script src="db.js"></script>
+  <!-- Load Main JavaScript Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
